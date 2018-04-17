@@ -1,11 +1,12 @@
 import numpy as np
 
-"""[Creates the adjacency matrix with which the steady state probabilities get multiplied iteratively]
+"""[Rereates the adjacency matrix with which the steady state probabilities get multiplied iteratively
+    The adjacency matrix A of a set of pages (nodes) defines the linking structure]
 
 Returns:
     [numpy Matrix] -- [The matrix with which the steady state probabilities will get multipled]
 """
-def create_adjacency_matrix(marchov_chain):
+def recreate_adjacency_matrix(marchov_chain):
     # since the size of the matrix is n x n getting the size of the row is enough
     num_urls = marchov_chain.shape[0]
 
@@ -36,7 +37,7 @@ Returns:
 """
 def compute_page_rank(marchov_chain):
     # create the adjacency matrix with which the steady state probability will get multiplied iteratively
-    adjacency_matrix = create_adjacency_matrix(marchov_chain)
+    adjacency_matrix = recreate_adjacency_matrix(marchov_chain)
 
     num_urls = adjacency_matrix.shape[0]
 
