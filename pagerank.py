@@ -1,6 +1,6 @@
 import numpy as np
 
-"""[Rereates the adjacency matrix with which the steady state probabilities get multiplied iteratively
+"""[Recreates the adjacency matrix with which the steady state probabilities get multiplied iteratively
     The adjacency matrix A of a set of pages (nodes) defines the linking structure]
 
 Returns:
@@ -63,12 +63,14 @@ def compute_page_rank(marchov_chain):
     
 
 if __name__ == '__main__':
-    '''
-        The marchov chain matrix where each row represents an individual url
-        and the columns of the matrix will represent the nodes that the url has visited.
-        If a url has visited other urls then the columns will get replaced by 1 / n, where
-        n is the total number of urls visited by that url.
 
+    '''
+        NOTE - This marchov chain is transpose of the modified adjacency matrix of the graph.
+        In an adjacency matrix the rows represent an individual url in the graph and columns
+        represent the urls that the graph has already visited. This adjacency matrix will be 
+        transposed and modified to recreate the adjacency matrix. If a url has visited other urls then 
+        the columns will get replaced by 1 / n, where n is the total number of urls visited by that url. 
+        The matrix will essentially be a transpose of the adjacency matrix with the columns divided by total non zero entries.
     '''
     marchov_chain = np.matrix([[0, 0, 1],
             [1, 0.5, 0],
